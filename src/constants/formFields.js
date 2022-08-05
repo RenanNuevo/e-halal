@@ -36,6 +36,65 @@ const loginFields=[
     }
 ]
 
+const forgotPasswordField=[
+    {
+        labelText:"OTP",
+        labelFor:"otp",
+        id:"otp",
+        name:"otp",
+        type:"text",
+        isRequired:true,
+        placeholder:"Enter OTP"
+    }
+]
+
+const confirmChangePasswordField=[
+    {
+        labelText:"mobile",
+        labelFor:"mobile",
+        id:"mobile",
+        name:"mobile",
+        type:"text",
+        isRequired:true,
+        placeholder:"Enter Phone Number"
+    }
+]
+
+const resetPasswordFields=[
+    {
+        labelText:"Password",
+        labelFor:"password",
+        id:"password",
+        name:"password",
+        type:"password",
+        autoComplete:"current-password",
+        isRequired:true,
+        placeholder:"Password",
+        icon: <HiOutlineLockClosed
+            enableBackground={true}
+            fill="white"
+            size="60"
+            color="#ba9644"
+        />
+    },
+    {
+        labelText:"Confirm Password",
+        labelFor:"confirm-password",
+        id:"confirm-password",
+        name:"confirm-password",
+        type:"password",
+        autoComplete:"confirm-password",
+        isRequired:true,
+        placeholder:"Confirm Password",
+        icon: <HiOutlineLockClosed
+            enableBackground={true}
+            fill="white"
+            size="60"
+            color="#ba9644"
+        />
+    }
+]
+
 const signupFields=[
     {
         labelText:"Username",
@@ -79,4 +138,4 @@ const signupFields=[
     }
 ]
 
-export {loginFields,signupFields}
+export { loginFields,signupFields, forgotPasswordField, resetPasswordFields, confirmChangePasswordField}

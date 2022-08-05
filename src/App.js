@@ -25,6 +25,10 @@ import {
 } from "react-router-dom";
 import SignupPage from './components/Signup';
 import LoginPage from './components/Login';
+import ForgotPassword from './components/ForgotPassword';
+import ChangePassword from './components/ChangePassword';
+import ConfirmChangePassword from './components/ConfirmChangePassword';
+import ResetPassword from './components/ResetPassword';
 import Dashboard from './dashboard/dashboard'
 
 function App() {
@@ -37,6 +41,10 @@ function App() {
         <Routes>
             <Route path="/" element={<LoginPage/>} />
             <Route path="/signup" element={<SignupPage/>} />
+            <Route path="/forgotpassword" element={<ForgotPassword/>} />
+            <Route path="/confirm-change-password" element={<ConfirmChangePassword/>} />
+            <Route path="/change-password" element={<ChangePassword/>} />
+            <Route path="/reset-password" element={<ResetPassword/>} />
             <Route path="/dashboard" element={<Dashboard/>} />
         </Routes>
       </BrowserRouter>

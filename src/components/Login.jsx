@@ -68,7 +68,7 @@ export default function Login2() {
                         )
                     }
                     <FormExtra/>
-                    <FormAction handleSubmit={handleSubmit} text="LOG IN"/>
+                    <FormAction customClass="rounded-lg mt-10" handleSubmit={handleSubmit} text="LOG IN"/>
                 </div>
             </form>
         </div>
