@@ -55,7 +55,7 @@
     letter-spacing: inherit;
     border: 0px;
     box-sizing: content-box;
-    background: none transparent;   
+    background: none transparent;
     margin: 0px;
     display: block;
     min-width: 0px;
@@ -172,4 +172,8 @@ td span {
     color: gray;
     font-weight: 700;
     border-color: #FFFFFF;
+}
+
+.modal{
+   background: rgba(0, 0, 0, 0.6);
 }
