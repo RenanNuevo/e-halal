@@ -3,7 +3,7 @@ import DashboardHeader from '../../../components/DashboardHeader';
 
 import all_orders from '../../../constants/orders';
 import {calculateRange, sliceData} from '../../../utils/table-pagination';
-
+import Badge from '../../../components/Badge';
 
 import '../styles.css';
 // import DoneIcon from '../../assets/icons/done.svg';
@@ -15,17 +15,10 @@ function Orders () {
     const [orders, setOrders] = useState(all_orders);
     const [page, setPage] = useState(1);
     const [pagination, setPagination] = useState([]);
-    const [activeTab, setActiveTab] = useState([]);
-
-
-    var extension = '../../../assets/';
-
+    const [activeTab, setActiveTab] = useState('incoming');
     const [modalcontent, setmodalcontent] = useState([]);
     const [openmodal, setopenmodal] = useState(false);
     const [opennxtmodal, setopennxtmodal] = useState(false);
-
-
-
 
     const changecontent = (orderID) => {
       let found = all_orders.find(obj => {
@@ -74,33 +67,24 @@ function Orders () {
         setActiveTab(id);
     }
 
+    const tabs = ['incoming', 'preparing', 'pickup', 'cancelled', 'completed']
+    const tableHeaders = ['Order No.', 'Date / Time', 'Amount', 'Delivery', 'Timer', 'Details', 'Actionss']
+
     return(
         <div className='dashboard-content'>
-            <DashboardHeader
-                btnText="New Order" />
             <div className='flex flex-row flex-nowrap justify-around -mb-3 mt-5 '>
                 {/* TO DO: loop */}
-                <button
-                    onClick={() => setActiveTabHandler('incoming')}
-                    id='incoming'
-                    className={activeTab === 'incoming' ? 'tab-item-active rounded-md' : 'tab-item bg-gray-400 rounded-md p-1'
-                }>INCOMING</button>
-                <button
-                    onClick={() => setActiveTabHandler('preparing')}
-                    id='preparing' className={activeTab === 'preparing' ? 'tab-item-active rounded-md' :  'tab-item bg-gray-400 rounded-md p-1'
-                }>PREPARING</button>
-                <button
-                    onClick={() => setActiveTabHandler('pickup')}
-                    id='pickup' className={activeTab === 'pickup' ? 'tab-item-active rounded-md' : 'tab-item bg-gray-400 rounded-md p-1'
-                }>PICK-UP/DELIVERY</button>
-                <button
-                    onClick={() => setActiveTabHandler('cancelled')}
-                    id='cancelled' className={activeTab === 'cancelled' ? 'tab-item-active rounded-md' : 'tab-item bg-gray-400 rounded-md p-1'}>
-                CANCELLED</button>
-                <button
-                    onClick={() => setActiveTabHandler('completed')}
-                    id='completed' className={activeTab === 'completed' ? 'tab-item-active rounded-md' : 'tab-item bg-gray-400 rounded-md p-1'}>
-                COMPLETED</button>
+                {tabs.map((tab, index) => {
+                    return <div className="flex space-x-2 justify-center"><button 
+                        onClick={() => setActiveTabHandler(tab)}
+                        id={tab}
+                        key={index}
+                        className={activeTab === tab ? 'tab-item-active rounded-md' : 'tab-item bg-gray-400 rounded-md p-1'}
+                    >{tab.toLocaleUpperCase()}
+                    <Badge display={8} />
+                    </button>
+                    </div>
+                })}
             </div>
             <div className='dashboard-content-container'>
                 <div className='dashboard-content-header'>
@@ -183,46 +167,46 @@ function Orders () {
                   <div id="modalEl" tabindex="-1" aria-hidden="true" className="modal fade flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none ">
                       <div class="relative modal-dialog modal-dialog-centered p-4 w-full max-w-3xl h-full md:h-auto ">
 
-                          <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                          <div class="relative bg-white rounded-lg shadow">
 
-                              <div class="flex justify-between items-start p-5 rounded-t border-b dark:border-gray-600">
-                                  <h4 class="text-base font-semibold text-gray-900 dark:text-white ml-15">
+                              <div class="flex justify-between items-start p-5 rounded-t border-b ">
+                                  <h4 class="text-base font-semibold text-gray-900">
                                     Order #{modalcontent.id} <span class="text-sm font-normal"> {modalcontent.date} / {modalcontent.timer} </span>
                                   </h4>
-                                  <button type="button" class="font-semibold text-black-600 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" onClick={() => modalopenclose(false)}>
+                                  <button type="button" class="font-semibold text-black-600 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center" onClick={() => modalopenclose(false)}>
                                       <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                                   </button>
                               </div>
 
                               <div class="p-6 space-y-6">
-                                <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                                <table class="w-full text-sm text-left text-gray-500">
                                       <tbody>
                                 {modalcontent.items.map((item, index) => (
 
 
-                                       <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                       <tr class="bg-white border-b hover:bg-gray-50">
                                         <td class="p-4 w-32"><img src={item.image} width="143" height="156" class="object-cover"></img></td>
-                                        <td class="py-4 px-6 font-semibold text-gray-900 dark:text-white">
+                                        <td class="py-4 px-6 font-semibold text-gray-900 ">
                                         <div class="text-base font-semibold">{item.name}</div>
                                         <div class="font-normal text-gray-500">{item.description}</div>
                                         </td>
-                                        <td class="py-4 px-6 font-semibold text-gray-900 dark:text-white">Php {item.price}.00</td>
-                                        <td class="py-4 px-6 font-semibold text-gray-900 dark:text-white">{item.quantity}</td>
-                                        <td class="py-4 px-6 font-semibold text-gray-900 dark:text-white">Php {item.totalprice}.00</td>
+                                        <td class="py-4 px-6 font-semibold text-gray-900">Php {item.price}.00</td>
+                                        <td class="py-4 px-6 font-semibold text-gray-900">{item.quantity}</td>
+                                        <td class="py-4 px-6 font-semibold text-gray-900">Php {item.totalprice}.00</td>
                                        </tr>
                                 ))}
 
                                   <tr >
                                       <td colspan="3" class="border-0"></td>
-                                      <td  class="border-0 py-4 px-6 font-semibold text-green-900 dark:text-white">TOTAL</td>
-                                      <td class="border-0 py-4 px-6 font-semibold text-gray-900 dark:text-white">Php {modalcontent.totalamount}.00</td>
+                                      <td  class="border-0 py-4 px-6 font-semibold text-green-900">TOTAL</td>
+                                      <td class="border-0 py-4 px-6 font-semibold text-gray-900">Php {modalcontent.totalamount}.00</td>
                                   </tr>
                                   </tbody>
                                 </table>
                               </div>
-                              <div class="flex items-center justify-center p-6 space-x-2 rounded-b dark:border-gray-600 border-0">
-                                  <button type="button" class="text-white w-48 bg-orange-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">MODIFY ORDER</button>
-                                  <button type="button" class="text-white w-48 bg-green-700  rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500">ACCEPT ORDER</button>
+                              <div class="flex items-center justify-center p-6 space-x-2 rounded-b border-0">
+                                  <button type="button" class="text-white w-48 bg-orange-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">MODIFY ORDER</button>
+                                  <button type="button" class="text-white w-48 bg-green-700  rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10">ACCEPT ORDER</button>
                               </div>
                           </div>
                       </div>
@@ -235,10 +219,10 @@ function Orders () {
                 <div id="checkItem" tabindex="-1" aria-hidden="true" className="modal fade flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none ">
                     <div class="relative modal-dialog modal-dialog-centered p-4 w-full max-w-3xl h-full md:h-auto ">
 
-                        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                        <div class="relative bg-white rounded-lg shadow">
 
-                            <div class="flex justify-between items-start p-5 rounded-t dark:border-gray-600 ">
-                                <button type="button" class="font-semibold text-black-600 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" onClick={() => openNextModal(false)}>
+                            <div class="flex justify-between items-start p-5 rounded-t ">
+                                <button type="button" class="font-semibold text-black-600 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center" onClick={() => openNextModal(false)}>
                                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                                 </button>
                             </div>
@@ -250,11 +234,11 @@ function Orders () {
                               <p class="font-semibold"> Contact Number: <span class="font-normal"> 09124895766 </span></p>
                               <p class="font-semibold"> Reason: <span class="font-normal"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua </span></p>
                             </div>
-                            <div class="flex items-center justify-center p-6 space-x-2 rounded-b dark:border-gray-600 border-0">
-                                <button type="button" class="text-white w-48 bg-green-700  rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500">ORDER DETAILS</button>
-                                <button type="button" class="text-white w-48 bg-green-700  rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500">ACCEPT</button>
+                            <div class="flex items-center justify-center p-6 space-x-2 rounded-b border-0">
+                                <button type="button" class="text-white w-48 bg-green-700  rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10">ORDER DETAILS</button>
+                                <button type="button" class="text-white w-48 bg-green-700  rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10">ACCEPT</button>
 
-                                <button type="button" class="text-white w-48 bg-red-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">DECLINE</button>
+                                <button type="button" class="text-white w-48 bg-red-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">DECLINE</button>
                             </div>
                         </div>
                     </div>

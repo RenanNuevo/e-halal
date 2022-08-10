@@ -10,7 +10,7 @@ import logo from '../../assets/logo.png';
 function SideBar ({ menu }) {
     const location = useLocation();
 
-    const [active, setActive] = useState(1);
+    const [active, setActive] = useState(0);
     const [curDate, setCurDate] = useState(new Date().toLocaleString())
     useEffect(() => {
         menu.forEach(element => {

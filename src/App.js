@@ -1,21 +1,3 @@
-// import Login from './components/Login'
-// import Login2 from './components/Login2'
-// import Login3 from './components/Login3';
-
-// function App() {
-//   return (
-//     <div>
-//       <Login />
-//       <Login2 />
-//       <Login3 />
-//     </div>
-//   );
-// }
-
-// export default App;
-
-
-
 import React from 'react';
 import './index.css';
 import {
@@ -23,33 +5,15 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import SignupPage from './components/Signup';
-import LoginPage from './components/Login';
-import ForgotPassword from './components/ForgotPassword';
-import ChangePassword from './components/ChangePassword';
-import ConfirmChangePassword from './components/ConfirmChangePassword';
-import ResetPassword from './components/ResetPassword';
-import Dashboard from './dashboard/dashboard'
+import MainRoutes from './Routes';
 
 function App() {
   return (
-    // <div className="min-h-full h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 ">
-    // <div className="max-w-md w-full space-y-8">
     <div>
-
-     <BrowserRouter>
-        <Routes>
-            <Route path="/" element={<LoginPage/>} />
-            <Route path="/signup" element={<SignupPage/>} />
-            <Route path="/forgotpassword" element={<ForgotPassword/>} />
-            <Route path="/confirm-change-password" element={<ConfirmChangePassword/>} />
-            <Route path="/change-password" element={<ChangePassword/>} />
-            <Route path="/reset-password" element={<ResetPassword/>} />
-            <Route path="/dashboard" element={<Dashboard/>} />
-        </Routes>
+      <BrowserRouter>
+        <MainRoutes />
       </BrowserRouter>
-    {/* </div> */}
-  </div>
+    </div>
   );
 }
 
