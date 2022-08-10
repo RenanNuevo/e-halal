@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import { useLocation } from 'react-router-dom';
+import moment from 'moment';
 
 import SideBarItem from './sidebar-item';
 
@@ -9,9 +10,16 @@ import logo from '../../assets/logo.png';
 
 function SideBar ({ menu }) {
     const location = useLocation();
-
+    const [momentObject, setMomentObject] = useState(moment());
     const [active, setActive] = useState(0);
-    const [curDate, setCurDate] = useState(new Date().toLocaleString())
+
+    const curDate = momentObject.format('MMMM d, yyyy');
+    const curTime = momentObject.format('hh:mm:ss');
+    
+    useEffect(() => {
+        setInterval(() => setMomentObject(moment()), 1000);
+    }, [momentObject])
+        
     useEffect(() => {
         menu.forEach(element => {
             if (location.pathname === element.path) {
@@ -25,17 +33,17 @@ function SideBar ({ menu }) {
     }
 
     return(
-        <nav className='sidebar'>
+        <nav className='sidebar shadow-lg'>
             <div className='sidebar-container'>
                 <div className='sidebar-logo-container'>
                     <img
                         src={logo}
                         alt="logo" />
                 </div>
-                <div className='text-center p-3'>
-                    <p>{curDate}</p>
-                </div>
-
+                <div className='ml-10 mb-5 -my-10 text-gray-900'>
+                   <p className='text-xl pb-4'>{curDate}</p>
+                   <p className='text-5xl'>{curTime}</p>
+               </div>
                 <div className='sidebar-container'>
                     <div className='sidebar-items'>
                         {menu.map((item, index) => (
