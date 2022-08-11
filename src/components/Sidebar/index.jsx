@@ -13,7 +13,7 @@ function SideBar ({ menu }) {
     const [momentObject, setMomentObject] = useState(moment());
     const [active, setActive] = useState(0);
 
-    const curDate = momentObject.format('MMMM d, yyyy');
+    const curDate = momentObject.format('MMMM D, yyyy');
     const curTime = momentObject.format('hh:mm:ss');
     
     useEffect(() => {

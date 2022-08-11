@@ -22,13 +22,14 @@ export default function Login2() {
 
     const handleSubmit=(e)=>{
         e.preventDefault();
-        authenticateUser(e);
+        authenticateUser();
     }
 
     //Handle Login API Integration here
     const authenticateUser = () =>{
         console.log(loginState)
         if(loginState['email-address'] == 'test@email.com' && loginState.password == 'Password123!') {
+		    localStorage.setItem("user", JSON.stringify({role: "ADMIN"}))
             navigate("/dashboard");
         }
         else {

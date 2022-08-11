@@ -44,20 +44,9 @@ const MainRoutes = () => (
 		{/** Protected Routes */}
 		{/** Wrap all Route under ProtectedRoutes element */}
 		{/* <Route path="/" > */}
-        {/* <div className='dashboard-container'> */}
-			{/* <SideBar menu={sidebar_menu} /> */}
-			{/* <main className='dashboard-body'> */}
                 <Route element={<ProtectedRoutes />}>
                     {/* <Route path="/" element={<Navigate replace to="dashboard" />} /> */}
                     <Route path="dashboard" element={<Dashboard />} />
-                    {/* <Route path="tabs" element={<Tabs props={{userName: "Bikash web"}} />}>
-                        <Route path="/tabs" element={<Navigate replace to="tab1" />} />
-                        <Route path="tab1" element={<Tab1 />} />
-                        <Route path="tab2" element={<ProtectedRoutes roleRequired="USER" />}>
-                            <Route path="/tabs/tab2" element={<Tab2 />} />
-                        </Route>
-                        <Route path="tab3" element={<Tab3 />} />
-                    </Route> */}
                     <Route path="orders" element={<Orders />} />
                     <Route path="menu" element={<Menu />} />
                     <Route path="surcharges" element={<Surcharges />} />
@@ -67,28 +56,18 @@ const MainRoutes = () => (
                     <Route path="pos" element={<POS />} />
                     <Route path="offers" element={<Offers />} />
                     <Route path="settings" element={<Settings />} />
-                    {/* <Route path="dynamic-form" element={<DynamicForm />} />
-                    <Route
-                        path="users"
-                        element={<Users extraItem="test extra item from router" />}
-                    />
-                    <Route path="users/:userId" element={<SingleUser />} />
-                    <Route path="users/new" element={<NewUser />} /> */}
                 </Route>
-			{/* </main> */}
-		{/* </div> */}
-        {/* </Route> */}
 
 		{/** Public Routes */}
 		{/** Wrap all Route under PublicRoutes element */}
-		<Route path="/" element={<Login />}>
-			<Route path="/login" element={<Login />} />
+		<Route path="/" element={<Login />} >
+			<Route path="login" element={<Login />} />
 		</Route>
-        <Route path="/signup" element={<SignupPage/>} />
-        <Route path="/forgotpassword" element={<ForgotPassword/>} />
-        <Route path="/confirm-change-password" element={<ConfirmChangePassword/>} />
-        <Route path="/change-password" element={<ChangePassword/>} />
-        <Route path="/reset-password" element={<ResetPassword/>} />
+        <Route path="signup" element={<SignupPage/>} />
+        <Route path="forgotpassword" element={<ForgotPassword/>} />
+        <Route path="confirm-change-password" element={<ConfirmChangePassword/>} />
+        <Route path="change-password" element={<ChangePassword/>} />
+        <Route path="reset-password" element={<ResetPassword/>} />
 
 		{/** Permission denied route */}
 		{/* <Route path="/denied" element={<PermissionDenied />} /> */}
