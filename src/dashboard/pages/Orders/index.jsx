@@ -2,13 +2,11 @@ import React, {useState, useEffect} from 'react';
 import DashboardHeader from '../../../components/DashboardHeader';
 
 import all_orders from '../../../constants/orders';
-import {calculateRange, sliceData} from '../../../utils/table-pagination';
+import { calculateRange, sliceData } from '../../../utils/table-pagination';
 import Badge from '../../../components/Badge';
+import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai'
 
 import '../styles.css';
-// import DoneIcon from '../../assets/icons/done.svg';
-// import CancelIcon from '../../assets/icons/cancel.svg';
-// import RefundedIcon from '../../assets/icons/refunded.svg';
 
 function Orders () {
     const [search, setSearch] = useState('');
@@ -17,23 +15,28 @@ function Orders () {
     const [pagination, setPagination] = useState([]);
     const [activeTab, setActiveTab] = useState('incoming');
     const [modalcontent, setmodalcontent] = useState([]);
-    const [openmodal, setopenmodal] = useState(false);
+    const [openmodal, setOpenmodal] = useState(false);
     const [opennxtmodal, setopennxtmodal] = useState(false);
+    const [openModifyModal, setOpenModifyModal] = useState(false);
 
     const changecontent = (orderID) => {
       let found = all_orders.find(obj => {
         return obj.id === orderID;
       })
       setmodalcontent(found);
-      setopenmodal(true);
+      setOpenmodal(true);
     }
 
     const modalopenclose = (stat) => {
-      setopenmodal(stat);
+      setOpenmodal(stat);
     }
 
     const openNextModal = (bool) => {
       setopennxtmodal(bool);
+    }
+
+    const handleOpenModifyModal = (bool) => {
+        setOpenModifyModal(bool);
     }
 
     useEffect(() => {
@@ -163,53 +166,158 @@ function Orders () {
                 }
 
                 {openmodal === true ?
-
                   <div id="modalEl" tabindex="-1" aria-hidden="true" className="modal fade flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none ">
-                      <div class="relative modal-dialog modal-dialog-centered p-4 w-full max-w-3xl h-full md:h-auto ">
-
-                          <div class="relative bg-white rounded-lg shadow">
-
-                              <div class="flex justify-between items-start p-5 rounded-t border-b ">
-                                  <h4 class="text-base font-semibold text-gray-900">
+                        <div class="relative modal-dialog modal-dialog-centered p-4 w-full max-w-6xl h-full md:h-auto">
+                            { openModifyModal && (
+                                <div class="grid grid-cols-6 grid-flow-col shadow bg-green-50 rounded-lg shadow w-full max-w-5xl">
+                                    <div class="bg-white shadow m-4 row-span-2 rounded-lg col-span-4 ">
+                                        <div class="p-8 space-y-8 min-w-200">
+                                            <div class="relative rounded-lg max-w-50">
+                                                <input
+                                                    type="search"
+                                                    id="default-search"
+                                                    class="block p-4 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search for products" required />
+                                                <div class="flex absolute inset-y-0 right-5 items-center pl-3 pointer-events-none">
+                                                    <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                                                </div>
+                                            </div>
+                                            <div className="flex flex-row justify-start w-full">
+                                                <div className='flex flex-row'>
+                                                    <p>View By:</p>
+                                                    <img src="" width="50" height="50" class="object-cover m-1"></img>
+                                                    <img src="" width="50" height="50" class="object-cover m-1"></img>
+                                                    <img src="" width="50" height="50" class="object-cover m-1"></img>
+                                                </div>
+                                                <div className='flex flex-row'>
+                                                    <p>Sort By:</p>
+                                                    {/* <div className='dashboard-content-search'> */}
+                                                    <select id="small" class="block p-2 mb-6 w-full text-sm text-gray-900 bg-gray-50 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                                        <option selected>Name A-Z</option>
+                                                        <option value="1">Test</option>
+                                                        <option value="2">Test</option>
+                                                        <option value="3">Test</option>
+                                                        <option value="4">Test</option>
+                                                        </select>
+                                            {/* </div> */}
+                                                            
+                                                </div>
+                                            </div>
+                                            <table class="max-h-3 text-sm text-left text-gray-500">
+                                                <tbody className='max-h-3 overflow-auto '>
+                                                    {modalcontent.items.map((item, index) => (
+                                                        <tr key={index} class="w-96 bg-white border-b hover:bg-gray-50">
+                                                            <td class="p-1"><img src={item.image} width="150" height="150" class="object-cover"></img></td>
+                                                            <td class="py-2  font-semibold text-gray-900 ">
+                                                            <div class="text-base font-semibold">{item.name}</div>
+                                                            <td class="py-2 px-6 font-semibold text-gray-900">Php {item.price}.00</td>
+                                                            </td>
+                                                            {/* <td class="py-4 px-6 font-semibold text-gray-900">Php {item.price}.00</td>*/}
+                                                            <td class="py-4 px-6 font-semibold text-gray-900">
+                                                                <button class="justify-center font-bold text-gray-900">Add to Cart</button>
+                                                            </td> 
+                                                            
+                                                        </tr>
+                                                    ))}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="bg-white row-span-2 col-span-2 justify-self-start">
+                                        
+                                        <div class="flex flex-col justify-start p-8 space-y-8 min-w-200 h-full">
+                                            <div class="relative rounded-lg max-w-50 w-full">
+                                                <p className="text-teal-800 font-bold text-2xl">Order Details</p>
+                                            </div>
+                                            <table class="text-sm text-left text-gray-500 justify-content-start">
+                                                <tbody className='max-h-3 overflow-auto '>
+                                                    {modalcontent.items.map((item, index) => (
+                                                        <tr key={index} class="bg-white border-b hover:bg-gray-50">
+                                                            <td class="font-semibold text-gray-900 ">
+                                                            <div class="text-base font-semibold">{item.name}</div>
+                                                            <div class="flex ">
+                                                                <p className="text-gray-600 mx-1">Quantity</p>
+                                                                <AiOutlineMinus size={19} className='cursor-pointer bg-teal-800 text-white p-1'/>
+                                                                <div class="w-5">
+                                                                <input
+                                                                    type='text'
+                                                                    value={'01'}
+                                                                    placeholder=''
+                                                                    className='w-full text-center'
+                                                                    onChange={e => __handleSearch(e)} />
+                                                                    </div>
+                                                                <AiOutlinePlus size={19} color={'white'} className='cursor-pointer bg-teal-800 text-white p-1'/>
+                                                            </div>
+                                                            </td>
+                                                            <td class=" font-semibold text-gray-900">
+                                                            <p class=" font-semibold text-gray-900">Php {item.price}.00</p>
+                                                                <button class="justify-center font-bold text-red-900">Remove</button>
+                                                            </td> 
+                                                        </tr>
+                                                    ))}
+                                                     <tr>
+                                                        <td className='text-teal-800 font-bold text-xl'>Total Amount</td>
+                                                        <td>Php 776.00</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <div class="justify-center align-self-end text-center">
+                                                <button onClick={() => {
+                                                    modalopenclose(false);
+                                                    handleOpenModifyModal(false);
+                                                } } className='rounded-lg  bg-green-700 text-white text-xl px-6 py-2'>MODIFY ORDER</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> 
+                            ) ||
+                            <div class="relative bg-white rounded-lg shadow">
+                            <div class="flex justify-between items-start p-5 rounded-t border-b ">
+                                <h4 class="text-base font-semibold text-gray-900">
                                     Order #{modalcontent.id} <span class="text-sm font-normal"> {modalcontent.date} / {modalcontent.timer} </span>
-                                  </h4>
-                                  <button type="button" class="font-semibold text-black-600 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center" onClick={() => modalopenclose(false)}>
-                                      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                                  </button>
-                              </div>
-
-                              <div class="p-6 space-y-6">
+                                </h4>
+                                <button type="button" class="font-semibold text-black-600 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center" onClick={() => modalopenclose(false)}>
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                                </button>
+                            </div>
+                            <div class="p-6 space-y-6">
                                 <table class="w-full text-sm text-left text-gray-500">
-                                      <tbody>
-                                {modalcontent.items.map((item, index) => (
-
-
-                                       <tr class="bg-white border-b hover:bg-gray-50">
-                                        <td class="p-4 w-32"><img src={item.image} width="143" height="156" class="object-cover"></img></td>
-                                        <td class="py-4 px-6 font-semibold text-gray-900 ">
-                                        <div class="text-base font-semibold">{item.name}</div>
-                                        <div class="font-normal text-gray-500">{item.description}</div>
-                                        </td>
-                                        <td class="py-4 px-6 font-semibold text-gray-900">Php {item.price}.00</td>
-                                        <td class="py-4 px-6 font-semibold text-gray-900">{item.quantity}</td>
-                                        <td class="py-4 px-6 font-semibold text-gray-900">Php {item.totalprice}.00</td>
-                                       </tr>
-                                ))}
-
-                                  <tr >
-                                      <td colspan="3" class="border-0"></td>
-                                      <td  class="border-0 py-4 px-6 font-semibold text-green-900">TOTAL</td>
-                                      <td class="border-0 py-4 px-6 font-semibold text-gray-900">Php {modalcontent.totalamount}.00</td>
-                                  </tr>
-                                  </tbody>
+                                    <tbody>
+                                        {modalcontent.items.map((item, index) => (
+                                            <tr key={index} class="bg-white border-b hover:bg-gray-50">
+                                                <td class="p-4 w-32"><img src={item.image} width="143" height="156" class="object-cover"></img></td>
+                                                <td class="py-4 px-6 font-semibold text-gray-900 ">
+                                                <div class="text-base font-semibold">{item.name}</div>
+                                                <div class="font-normal text-gray-500">{item.description}</div>
+                                                </td>
+                                                <td class="py-4 px-6 font-semibold text-gray-900">Php {item.price}.00</td>
+                                                <td class="py-4 px-6 font-semibold text-gray-900">{item.quantity}</td>
+                                                <td class="py-4 px-6 font-semibold text-gray-900">Php {item.totalprice}.00</td>
+                                            </tr>
+                                        ))}
+                                        <tr>
+                                            <td colspan="3" class="border-0"></td>
+                                            <td  class="border-0 py-4 px-6 font-semibold text-green-900">TOTAL</td>
+                                            <td class="border-0 py-4 px-6 font-semibold text-gray-900">Php {modalcontent.totalamount}.00</td>
+                                        </tr>
+                                    </tbody>
                                 </table>
-                              </div>
-                              <div class="flex items-center justify-center p-6 space-x-2 rounded-b border-0">
-                                  <button type="button" class="text-white w-48 bg-orange-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">MODIFY ORDER</button>
-                                  <button type="button" class="text-white w-48 bg-green-700  rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10">ACCEPT ORDER</button>
-                              </div>
-                          </div>
-                      </div>
+                            </div>
+                            <div class="flex items-center justify-center p-6 space-x-2 rounded-b border-0">
+                                    <button
+                                        onClick={()=> handleOpenModifyModal(true)}
+                                        type="button"  
+                                        class="text-white w-48 bg-orange-500 hover:bg-blue-800 focus:ring-4 focus:outline-none 
+                                        focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                                    >MODIFY ORDER</button>
+                                <button
+                                    type="button"
+                                    class="text-white w-48 bg-green-700  rounded-lg border border-gray-200 
+                                    text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10"
+                                    >ACCEPT ORDER</button>
+                            </div>
+                        </div>
+                            }
+                        </div>
                   </div>
 
                 : null}
