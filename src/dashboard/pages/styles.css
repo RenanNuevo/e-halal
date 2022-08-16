@@ -86,7 +86,7 @@
     line-height: 10px;
 }
 .modify-modal-background {
-    background-color: #217e63;
+    background-color: rgba(0,0,0,0);
 }
 table {
     width: 100%;

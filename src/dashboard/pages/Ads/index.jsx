@@ -85,12 +85,28 @@ function Ads () {
                                 <p className="text-green-800 font-bold text-xl">
                                     Drag and drop or
                                 </p>
-                                <button
-                                        type="button"
+                                {/* <input type="file" text="BROWSE" 
+                                 className="bg-green-800 px-6 text-white font-medium py-2.5 text-xs uppercase 
+                                 rounded shadow-md hover:bg-gray-700 hover:shadow-lg focus:bg-gray-700 focus:shadow-lg focus:outline-none focus:ring-0 
+                                 active:bg-gray-800 active:shadow-lg transition duration-150 ease-in-out"/> */}
+                                 <label class="block bg-green-800 px-6 text-white font-medium py-2.5 text-xs uppercase 
+                                 rounded shadow-md hover:bg-gray-700 hover:shadow-lg focus:bg-gray-700 focus:shadow-lg focus:outline-none focus:ring-0 
+                                 active:bg-gray-800 active:shadow-lg transition duration-150 ease-in-out">
+                                    <span class="sr-only">Choose profile photo</span>
+                                    <input type="file"  placeholder="BROWSE" class="file:border file:border-solid block w-full text-sm text-slate-500
+                                    file:mr-4 file:py-2 file:px-4
+                                    file:rounded-full file:border-0
+                                    file:text-sm file:font-semibold
+                                    file:bg-violet-50 file:text-violet-700
+                                    hover:file:bg-violet-100
+                                    "/>
+                                </label>
+                                {/* <button
+                                        type="file"
                                         className="bg-green-800 px-6 text-white font-medium py-2.5 text-xs uppercase 
                                             rounded shadow-md hover:bg-gray-700 hover:shadow-lg focus:bg-gray-700 focus:shadow-lg focus:outline-none focus:ring-0 
                                             active:bg-gray-800 active:shadow-lg transition duration-150 ease-in-out"
-                                    >BROWSE</button>
+                                    >BROWSE</button> */}
                             </div>
                             <div className="grid content-center justify-self-end">
                                 <p className='text-green-800 text-2xl font-bold mb-3'>Advertisement Guidelines</p>
