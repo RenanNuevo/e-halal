@@ -51,6 +51,13 @@ function SideBar ({ menu }) {
                                 <SideBarItem
                                     active={item.id === active}
                                     item={item} />
+                                    {item.submenu && (
+                                        <div onClick={() => __navigate(item.submenu.id)}>
+                                        <SideBarItem
+                                            active={item.submenu.id === active}
+                                            item={item.submenu} />
+                                    </div>
+                                    )}
                             </div>
                         ))}
                     </div>

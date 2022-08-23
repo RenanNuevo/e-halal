@@ -55,6 +55,8 @@ const MainRoutes = () => (
                     <Route path="e-wallet" element={<Ewallet />} />
                     <Route path="pos" element={<POS />} />
                     <Route path="offers" element={<Offers />} />
+                    <Route path="vouchers" element={<Offers />} />
+
                     <Route path="settings" element={<Settings />} />
                 </Route>
 

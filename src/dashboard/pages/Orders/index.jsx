@@ -5,7 +5,9 @@ import all_orders from '../../../constants/orders';
 import { calculateRange, sliceData } from '../../../utils/table-pagination';
 import Badge from '../../../components/Badge';
 import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai'
-
+import g1 from  '../../../assets/g1.png'
+import g2 from  '../../../assets/g2.png'
+import g3 from  '../../../assets/g3.png'
 import '../styles.css';
 
 function Orders () {
@@ -171,17 +173,38 @@ function Orders () {
                             { openModifyModal && (
                                 <div class="grid grid-cols-6 grid-flow-col shadow bg-green-50 rounded-lg shadow w-full max-w-5xl">
                                     <div class="bg-white shadow m-4 row-span-2 rounded-lg col-span-4 ">
-                                        <div class="p-8 space-y-8 min-w-200">
-                                            <div class="relative rounded-lg max-w-50">
-                                                <input
-                                                    type="search"
-                                                    id="default-search"
-                                                    class="block p-4 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search for products" required />
-                                                <div class="flex absolute inset-y-0 right-5 items-center pl-3 pointer-events-none">
-                                                    <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-                                                </div>
-                                            </div>
-                                            <div className="flex flex-row justify-start w-full">
+                                    <div class="p-8 space-y-8 min-w-200">
+                                <div class="flex relative rounded-full w-1/2 h-7 justify-between">
+                                <input
+                                    type="search"
+                                    id="default-search"
+                                    class="block w-full p-4 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search for products" required />
+                                <div class="absolute inset-y-0 right-1 flex items-center pointer-events-none">
+                                    <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                                </div>
+                            </div>
+                            <div className="grid grid-flow-col gap-3 justify-start  w-2/2">
+                            <div className='flex flex-row'>
+                                <p>View By:</p>
+                                <img src={g3} width="25" height="25" class="object-cover m-1"></img>
+                                <img src={g1} width="25" height="25" class="object-cover m-1"></img>
+                                <img src={g2} width="25" height="25" class="object-cover m-1"></img>
+                            </div>
+                            <div className='grid grid-flow-col content-start'>
+                                <label>Sort By:</label>
+                                {/* <div className='dashboard-content-search'> */}
+                                <select id="small" class="block ml-2 w-40 text-sm text-gray-900 bg-gray-50 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                    <option selected>Name A-Z</option>
+                                    <option value="1">Test</option>
+                                    <option value="2">Test</option>
+                                    <option value="3">Test</option>
+                                    <option value="4">Test</option>
+                                </select>
+                        {/* </div> */}
+                                        
+                            </div>
+                        </div>
+                                            {/* <div className="flex flex-row justify-start w-full">
                                                 <div className='flex flex-row'>
                                                     <p>View By:</p>
                                                     <img src="" width="50" height="50" class="object-cover m-1"></img>
@@ -190,18 +213,18 @@ function Orders () {
                                                 </div>
                                                 <div className='flex flex-row'>
                                                     <p>Sort By:</p>
-                                                    {/* <div className='dashboard-content-search'> */}
+                                                
                                                     <select id="small" class="block p-2 mb-6 w-full text-sm text-gray-900 bg-gray-50 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                                         <option selected>Name A-Z</option>
                                                         <option value="1">Test</option>
                                                         <option value="2">Test</option>
                                                         <option value="3">Test</option>
                                                         <option value="4">Test</option>
-                                                        </select>
-                                            {/* </div> */}
+                                                    </select>
+                                           
                                                             
                                                 </div>
-                                            </div>
+                                            </div> */}
                                             <table class="max-h-3 text-sm text-left text-gray-500">
                                                 <tbody className='max-h-3 overflow-auto '>
                                                     {modalcontent.items.map((item, index) => (

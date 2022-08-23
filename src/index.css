@@ -13,3 +13,11 @@
     background-color: #F0F2F5;
     background-image: url("./assets/bg2.png");
 }
+#toggle-switch::after {
+    content: '';
+    @apply h-9 w-9 rounded-full absolute -top-1 left-0 transform scale-110 transition duration-200 bg-switch-disabled;
+}
+
+#toggle-switch:checked::after {
+    @apply transform scale-110 translate-x-10 bg-switch-enabled;
+}

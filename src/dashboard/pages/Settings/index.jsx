@@ -1,14 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import DashboardHeader from '../../../components/DashboardHeader';
+import Accordion from '../../../components/Accordion';
 import Badge from '../../../components/Badge';
 import all_orders from '../../../constants/orders';
 import { calculateRange, sliceData } from '../../../utils/table-pagination';
-// import { DataTable } from '../../../components/DataTable'
-import '../styles.css';
-import { data } from 'autoprefixer';
-// import DoneIcon from '../../assets/icons/done.svg';
-// import CancelIcon from '../../assets/icons/cancel.svg';
-// import RefundedIcon from '../../assets/icons/refunded.svg';
 
 function Settings () {
     const [search, setSearch] = useState('');
@@ -52,7 +46,7 @@ function Settings () {
     const tableHeaders = ['Order No.', 'Date / Time', 'Amount', 'Delivery', 'Timer', 'Details', 'Actionss']
 
     return(
-        <div className='dashboard-content'>
+        <div className='dashboard-content h-full'>
             <div className='flex flex-row flex-nowrap justify-around -mb-3 mt-5 '>
                 {/* TO DO: loop */}
                 {tabs.map((tab, index) => {
@@ -67,73 +61,10 @@ function Settings () {
                     </div>
                 })}
             </div>
-            <div className='dashboard-content-container'>
-                <div className='dashboard-content-header'>
-                    <div className='dashboard-content-search'>
-                        <input
-                            type='text'
-                            value={search}
-                            placeholder='Search..'
-                            className='dashboard-content-input'
-                            onChange={e => __handleSearch(e)} />
-                    </div>
-                </div>
-                {/* <DataTable data={orders} headers={tableHeaders} /> */}
-                <table>
-                    <thead>
-                        <th>Order No.</th>
-                        <th>Date / Time</th>
-                        <th>Amount</th>
-                        <th>Delivery</th>
-                        <th>Timer</th>
-                        <th>Details</th>
-                        <th>Action</th>
-                    </thead>
-
-                    {orders.length !== 0 ?
-                        <tbody>
-                            {orders.map((order, index) => (
-                                <tr key={index}>
-                                    <td><span>#{order.id}</span></td>
-                                    <td><span>{order.date}</span></td>
-                                    <td>
-                                            <span>{order.amount}</span>
-                                    </td>
-                                    <td><span>{order.delivery}</span></td>
-                                    <td><span>{order.timer}</span></td>
-                                    <td><div>
-                                        <button className='bg-green-500 text-white rounded-md p-1'>Order Details</button></div></td>
-                                    <td><div>
-                                        <button 
-                                            className='m-1 bg-green-500 text-white rounded-md p-1'>&#10004;
-                                        </button>
-                                        <button 
-                                            className='m-1 bg-red-500 text-white rounded-md p-1'>&#10006;
-                                        </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    : null}
-                </table>
-
-                {orders.length !== 0 ?
-                    <div className='dashboard-content-footer'>
-                        {pagination.map((item, index) => (
-                            <span 
-                                key={index}
-                                className={item === page ? 'active-pagination' : 'pagination'}
-                                onClick={() => __handleChangePage(item)}>
-                                    {item}
-                            </span>
-                        ))}
-                    </div>
-                : 
-                    <div className='dashboard-content-footer'>
-                        <span className='empty-table'>No data</span>
-                    </div>
-                }
+            
+            <div className='bg-white flex overflow-auto flex-col rounded-lg m-6 p-12'>
+                <p className='text-2xl font-bold text-green-700'>Settings </p>
+                <Accordion />
             </div>
         </div>
     )
