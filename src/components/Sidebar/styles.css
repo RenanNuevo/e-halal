@@ -25,7 +25,7 @@
     height: 100%;
     width: 100%;
 }
-.sidebar-item {
+.sidebar-item, .sidebar-sub-item {
     padding: 1.5em;
     padding-left: 2em;
     display: flex;
@@ -38,6 +38,11 @@
 }
 .sidebar-item:hover {
     background-color: #00732f;
+    color: white;
+}
+.sidebar-sub-item:hover {
+    background-color: #8cc9a5;
+    color: white;
 }
 .sidebar-item-active {
     padding: 1.5em;

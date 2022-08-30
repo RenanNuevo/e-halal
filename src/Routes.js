@@ -10,7 +10,7 @@ import Dashboard from "./dashboard/dashboard";
 import Orders from "./dashboard/pages/Orders";
 import Menu from "./dashboard/pages/Menu";
 import Surcharges from "./dashboard/pages/Surcharges";
-import Offers from "./dashboard/pages/Offers";
+import { Vouchers, Deals } from "./dashboard/pages/Offers";
 import Ewallet from "./dashboard/pages/Ewallet";
 import Analytics from "./dashboard/pages/Analytics";
 import POS from "./dashboard/pages/POS";
@@ -54,8 +54,9 @@ const MainRoutes = () => (
                     <Route path="analytics" element={<Analytics />} />
                     <Route path="e-wallet" element={<Ewallet />} />
                     <Route path="pos" element={<POS />} />
-                    <Route path="offers" element={<Offers />} />
-                    <Route path="vouchers" element={<Offers />} />
+                    {/* <Route path="offers" element={<Offers />} /> */}
+                    <Route path="deals" element={<Deals />} />
+                    <Route path="vouchers" element={<Vouchers />} />
 
                     <Route path="settings" element={<Settings />} />
                 </Route>
