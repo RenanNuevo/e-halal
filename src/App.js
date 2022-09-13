@@ -9,11 +9,9 @@ import MainRoutes from './Routes';
 
 function App() {
   return (
-    <div>
-      <BrowserRouter>
-        <MainRoutes />
-      </BrowserRouter>
-    </div>
+    <BrowserRouter>
+      <MainRoutes />
+    </BrowserRouter>
   );
 }
 

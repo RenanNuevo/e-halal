@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { resetPasswordFields } from "../constants/formFields";
 import FormAction from "./FormAction";
 import Input from "./Input";
+import './landing.css';
 
 import loginImg from '../assets/bg.png'
 
@@ -27,7 +28,7 @@ export default function Login2() {
     const authenticateUser = () =>{
         console.log(loginState)
         if(loginState.password == loginState['confirm-password']) {
-            navigate("/");
+            navigate("/confirm-change-password");
         }
         else {
             alert('Password did"nt matched')
@@ -35,8 +36,8 @@ export default function Login2() {
     }
     
     return (
-        <div className='relative w-full h-screen bg-zinc-900/200'>
-            <img className='absolute w-full h-full object-cover mix-blend-lighten' src={loginImg} alt="/" />
+        <div className='relative w-full h-screen landing-body'>
+            {/* <img className='absolute w-full h-full object-cover mix-blend-lighten' src={loginImg} alt="/" /> */}
         <div className='flex justify-center items-center h-full   shadow-gray-600'>
             <form
                 className='justify-center items-center x-auto shadow-lg rounded-3xl bg-white p-10 min-w-[950px]'
@@ -63,7 +64,7 @@ export default function Login2() {
                             />
                         )
                     }
-                    <FormAction customClass="self-center max-w-[480px]" handleSubmit={handleSubmit} text="CHANGE PASSWORD"/>
+                    <FormAction customClass="rounded-lg mt-10" handleSubmit={handleSubmit} text="CHANGE PASSWORD"/>
                 </div>
                 <ul className='self-center -mt-20'>
                     <li className='ml-20 min-w-[420px] font-bold' >Password must contain:</li>

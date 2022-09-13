@@ -13,8 +13,8 @@ const loginFields=[
         placeholder:"Email",
         icon: <HiOutlineMail
             enableBackground={true}
-            fill="#ba9644"
-            size="60"
+            fill="#fbbf24"
+            size="40"
             color="white"
         />
     },
@@ -29,9 +29,9 @@ const loginFields=[
         placeholder:"Password",
         icon: <HiOutlineLockClosed
             enableBackground={true}
-            fill="white"
-            size="60"
-            color="#ba9644"
+            fill="#fbbf24"
+            size="40"
+            color="white"
         />
     }
 ]
@@ -72,9 +72,9 @@ const resetPasswordFields=[
         placeholder:"Password",
         icon: <HiOutlineLockClosed
             enableBackground={true}
-            fill="white"
-            size="60"
-            color="#ba9644"
+            fill="#fbbf24"
+            size="40"
+            color="white"
         />
     },
     {
@@ -88,9 +88,9 @@ const resetPasswordFields=[
         placeholder:"Confirm Password",
         icon: <HiOutlineLockClosed
             enableBackground={true}
-            fill="white"
-            size="60"
-            color="#ba9644"
+            fill="#fbbf24"
+            size="40"
+            color="white"
         />
     }
 ]

@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { forgotPasswordField } from "../constants/formFields";
 import FormAction from "./FormAction";
-import FormExtra from "./FormExtra";
 import Input from "./Input";
 
 import loginImg from '../assets/bg.png'
+import './landing.css';
 
 const fields=forgotPasswordField;
 let fieldsState = {};
@@ -36,16 +36,16 @@ export default function Login2() {
     }
     
     return (
-        <div className='relative w-full h-screen bg-zinc-900/200'>
-            <img className='absolute w-full h-full object-cover mix-blend-lighten' src={loginImg} alt="/" />
-        <div className='flex justify-center items-center h-full   shadow-gray-600'>
+        <div className='relative w-full h-screen landing-body'>
+            {/* <img className='absolute w-full h-full object-cover mix-blend-lighten' src={loginImg} alt="/" /> */}
+        <div className='flex justify-center items-center h-full shadow-gray-600'>
             <form
                 className='justify-center items-center x-auto shadow-lg rounded-3xl bg-white p-10 min-w-[950px]'
                 onSubmit={handleSubmit}
             >
 
                 <div className="place-content-center font-bold mb-8 p-4  max-w-[750px]">
-                    <p className='text-3xl mb-10'>Forgot Password</p>
+                    <p className='text-3xl mb-10'>Forgot Passwords</p>
                     <div className='flex justify'>
                     {
                         fields.map(field=>

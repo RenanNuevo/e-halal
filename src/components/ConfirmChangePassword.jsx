@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { confirmChangePasswordField } from "../constants/formFields";
 import FormAction from "./FormAction";
 import Input from "./Input";
+import './landing.css';
 
-import loginImg from '../assets/bg.png'
 
 const fields=confirmChangePasswordField;
 let fieldsState = {};
@@ -35,9 +35,8 @@ export default function Login2() {
     }
     
     return (
-        <div className='relative w-full h-screen bg-zinc-900/200'>
-            <img className='absolute w-full h-full object-cover mix-blend-lighten' src={loginImg} alt="/" />
-        <div className='flex justify-center items-center h-full   shadow-gray-600'>
+        <div className='relative w-full h-screen landing-body'>
+            <div className='flex justify-center items-center h-full   shadow-gray-600'>
             <form
                 className='justify-center items-center x-auto shadow-lg rounded-3xl bg-white p-10 min-w-[950px]'
                 onSubmit={handleSubmit}

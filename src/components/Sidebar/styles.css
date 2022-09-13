@@ -5,6 +5,7 @@
     height: 100vh;
     display: flex;
     justify-content: center;
+    overflow-y: hidden;
     position: sticky;
 }
 .sidebar-logo-container {
@@ -66,9 +67,8 @@
 }
 /* Footer */
 .sidebar-footer {
-    padding: 1.5em;
     color: #FFFFFF;
-    display: flex;
+    /* display: flex; */
     align-items: center;
     justify-content: space-between;
     cursor: pointer;

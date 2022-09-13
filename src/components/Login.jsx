@@ -4,9 +4,8 @@ import { loginFields } from "../constants/formFields";
 import FormAction from "./FormAction";
 import FormExtra from "./FormExtra";
 import Input from "./Input";
-
-import loginImg from '../assets/bg.png'
 import logoImg from '../assets/logo.png'
+import './landing.css';
 
 const fields=loginFields;
 let fieldsState = {};
@@ -38,19 +37,18 @@ export default function Login2() {
     }
     
     return (
-        <div className='relative w-full h-screen bg-zinc-900/200'>
-            <img className='absolute w-full h-full object-cover mix-blend-lighten' src={loginImg} alt="/" />
-        <div className='flex justify-center items-center h-full  shadow-lg shadow-gray-600'>
-            <form
-                className='justify-center items-center x-auto p-10 max-w-[950px]'
-                onSubmit={handleSubmit}
-            >
-                <div className="flex items-center max-w-[950px] bg-white-1 justify-items-center">
-                    <img className="mix-blend-lighten" src={logoImg} alt="/" />
-                </div>
-                <div className="grid place-content-center font-bold mb-8 p-4 ">
-                    {
-                        fields.map(field=>
+        <div className='w-full h-screen landing-body'>
+            <div className='flex justify-center items-center h-full'>
+                <form
+                    className='justify-center items-center x-auto p-10 max-w-[950px]'
+                    onSubmit={handleSubmit}
+                >
+                    <div className="flex items-center max-w-[950px] bg-white-1 justify-items-center">
+                        <img src={logoImg} alt="/" />
+                    </div>
+                    <div className="grid place-content-center font-bold mb-8 p-4 ">
+                        {
+                            fields.map(field=>
                                 <Input
                                     key={field.id}
                                     handleChange={handleChange}
@@ -64,15 +62,14 @@ export default function Login2() {
                                     placeholder={field.placeholder}
                                     customClass="self-center min-w-[450px]"
                                     icon={field.icon}
-                            />
-                        
-                        )
-                    }
-                    <FormExtra/>
-                    <FormAction customClass="rounded-lg mt-10" handleSubmit={handleSubmit} text="LOG IN"/>
-                </div>
-            </form>
-        </div>
+                                />
+                            )
+                        }
+                        <FormExtra/>
+                        <FormAction customClass="rounded-lg mt-10" handleSubmit={handleSubmit} text="LOG IN"/>
+                    </div>
+                </form>
+            </div>
         </div>
     )
 }

@@ -1,0 +1,8 @@
+.landing-body {
+    background-color: #F0F2F5 !important;
+    background-image: url("../assets/bg.png") !important;
+    /* background-repeat: no-repeat !important; */
+    background-size: contain !important;
+    background-blend-mode: multiply !important;
+    /* background-size: stretch !important; */
+}

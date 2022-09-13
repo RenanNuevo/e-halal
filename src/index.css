@@ -11,7 +11,8 @@
     display: flex;
     flex-direction: column;
     background-color: #F0F2F5;
-    background-image: url("./assets/bg2.png");
+    background-image: url("./assets/bg.png");
+    background-size: fit !important;
 }
 #toggle-switch::after {
     content: '';

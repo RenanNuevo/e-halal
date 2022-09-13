@@ -109,7 +109,7 @@ function POS () {
                             </div>
                         </div>
                         <table class="text-sm text-left text-gray-500 ">
-                            <tbody className='overflow-auto p-0 grid grid-cols-2 gap-10 flex justify-center '>
+                            <tbody className='overflow-auto p-0 grid grid-cols-3 gap-10 flex justify-center '>
                                 {menus.map((item, index) => (
                                     <tr key={index} class="w-96 bg-white border-none ">
                                         <td class="p-1 border-none"><img src={item.image} width="150" height="150" class="object-cover"></img></td>

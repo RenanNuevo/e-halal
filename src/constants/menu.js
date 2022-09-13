@@ -28,6 +28,114 @@ const menus = [
         prep_time: "00:45:00",
             tagged: 'Halal',
         category: 'test'
+    },
+    {
+        name: "Tabbouleah Salad",
+        image: deli,
+        description: "Lorem ipsum dolor sit amet...",
+        price: "Php 350.00",
+        prep_time: "00:45:00",
+        tagged: 'Halal',
+        category: 'test'
+    },
+    {
+        name: "Tabbouleah Salad",
+        image: deli,
+        description: "Lorem ipsum dolor sit amet...",
+        price: "Php 350.00",
+        prep_time: "00:45:00",
+        tagged: 'Halal',
+        category: 'test'
+    },
+    {
+        name: "Tabbouleah Salad",
+        image: deli,
+        description: "Lorem ipsum dolor sit amet...",
+        price: "Php 350.00",
+        prep_time: "00:45:00",
+            tagged: 'Halal',
+        category: 'test'
+    },
+    {
+        name: "Tabbouleah Salad",
+        image: deli,
+        description: "Lorem ipsum dolor sit amet...",
+        price: "Php 350.00",
+        prep_time: "00:45:00",
+        tagged: 'Halal',
+        category: 'test'
+    },
+    {
+        name: "Tabbouleah Salad",
+        image: deli,
+        description: "Lorem ipsum dolor sit amet...",
+        price: "Php 350.00",
+        prep_time: "00:45:00",
+        tagged: 'Halal',
+        category: 'test'
+    },
+    {
+        name: "Tabbouleah Salad",
+        image: deli,
+        description: "Lorem ipsum dolor sit amet...",
+        price: "Php 350.00",
+        prep_time: "00:45:00",
+            tagged: 'Halal',
+        category: 'test'
+    },
+    {
+        name: "Tabbouleah Salad",
+        image: deli,
+        description: "Lorem ipsum dolor sit amet...",
+        price: "Php 350.00",
+        prep_time: "00:45:00",
+        tagged: 'Halal',
+        category: 'test'
+    },
+    {
+        name: "Tabbouleah Salad",
+        image: deli,
+        description: "Lorem ipsum dolor sit amet...",
+        price: "Php 350.00",
+        prep_time: "00:45:00",
+        tagged: 'Halal',
+        category: 'test'
+    },
+    {
+        name: "Tabbouleah Salad",
+        image: deli,
+        description: "Lorem ipsum dolor sit amet...",
+        price: "Php 350.00",
+        prep_time: "00:45:00",
+            tagged: 'Halal',
+        category: 'test'
+    },
+    {
+        name: "Tabbouleah Salad",
+        image: deli,
+        description: "Lorem ipsum dolor sit amet...",
+        price: "Php 350.00",
+        prep_time: "00:45:00",
+        tagged: 'Halal',
+        category: 'test'
+    },
+    {
+        name: "Tabbouleah Salad",
+        image: deli,
+        description: "Lorem ipsum dolor sit amet...",
+        price: "Php 350.00",
+        prep_time: "00:45:00",
+        tagged: 'Halal',
+        category: 'test'
+    },
+    {
+        name: "Tabbouleah Salad",
+        image: deli,
+        description: "Lorem ipsum dolor sit amet...",
+        price: "Php 350.00",
+        prep_time: "00:45:00",
+            tagged: 'Halal',
+        category: 'test'
     }
 ]
 

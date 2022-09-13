@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import moment from 'moment';
 
 import SideBarItem from './sidebar-item';
-
+import Carousel from '../Carousel';
 import './styles.css';
 import logo from '../../assets/logo.png';
 // import LogoutIcon from '../../assets/icons/logout.svg';
@@ -63,11 +63,12 @@ function SideBar ({ menu }) {
                     </div>
 
                     <div className='sidebar-footer'>
-                        <span className='sidebar-item-label'>Logout</span>
+                        <Carousel />
+                        {/* <span className='sidebar-item-label'>Logout</span>
                         <img 
                             // src={LogoutIcon}
                             alt='icon-logout'
-                            className='sidebar-item-icon' />
+                            className='sidebar-item-icon' /> */}
                     </div>
                 </div>
             </div>
