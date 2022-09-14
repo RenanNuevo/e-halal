@@ -75,7 +75,7 @@ function POS () {
             <div className='bg-white flex overflow-auto rounded-lg m-6'>
                 {
                     !showReceipt && (
-                        <div class="grid grid-cols-3 grid-flow-col shadow bg-green-50 rounded-lg shadow w-full h-max">
+                        <div class="grid grid-cols-3 grid-flow-col gap-3 shadow bg-green-50 rounded-lg shadow w-full h-max">
                             <div class="bg-white shadow m-4 row-span-2 rounded-lg col-start-1 col-end-3 h-screen overflow-auto">
                             <div class="p-8 space-y-8 min-w-200">
                                 <div class="flex relative rounded-full w-1/2 h-7 justify-between">

@@ -2,6 +2,9 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}",],
   darkmode: false,
   theme: {
+        // colors: {
+        //   'gold-special': '#b99644'
+        // },
     'display': ['roboto'],
     'body': ['"Roboto"'],
     extend: {

@@ -271,51 +271,51 @@ function Orders () {
                                 </div> 
                             ) ||
                             <div class="relative bg-white rounded-lg shadow">
-                            <div class="flex justify-between items-start p-5 rounded-t border-b ">
-                                <h4 class="text-base font-semibold text-gray-900">
-                                    Order #{modalcontent.id} <span class="text-sm font-normal"> {modalcontent.date} / {modalcontent.timer} </span>
-                                </h4>
-                                <button type="button" class="font-semibold text-black-600 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center" onClick={() => modalopenclose(false)}>
-                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                                </button>
-                            </div>
-                            <div class="p-6 space-y-6">
-                                <table class="w-full text-sm text-left text-gray-500">
-                                    <tbody>
-                                        {modalcontent.items.map((item, index) => (
-                                            <tr key={index} class="bg-white border-b hover:bg-gray-50">
-                                                <td class="p-4 w-32"><img src={item.image} width="143" height="156" class="object-cover"></img></td>
-                                                <td class="py-4 px-6 font-semibold text-gray-900 ">
-                                                <div class="text-base font-semibold">{item.name}</div>
-                                                <div class="font-normal text-gray-500">{item.description}</div>
-                                                </td>
-                                                <td class="py-4 px-6 font-semibold text-gray-900">Php {item.price}.00</td>
-                                                <td class="py-4 px-6 font-semibold text-gray-900">{item.quantity}</td>
-                                                <td class="py-4 px-6 font-semibold text-gray-900">Php {item.totalprice}.00</td>
+                                <div class="flex justify-between items-start p-5 rounded-t border-b ">
+                                    <h4 class="text-base font-semibold text-gray-900">
+                                        Order #{modalcontent.id} <span class="text-sm font-normal"> {modalcontent.date} / {modalcontent.timer} </span>
+                                    </h4>
+                                    <button type="button" class="font-semibold text-black-600 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center" onClick={() => modalopenclose(false)}>
+                                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                                    </button>
+                                </div>
+                                <div class="p-6 space-y-6">
+                                    <table class="w-full text-sm text-left text-gray-500">
+                                        <tbody>
+                                            {modalcontent.items.map((item, index) => (
+                                                <tr key={index} class="bg-white border-b hover:bg-gray-50">
+                                                    <td class="p-4 w-32"><img src={item.image} width="143" height="156" class="object-cover"></img></td>
+                                                    <td class="py-4 px-6 font-semibold text-gray-900 ">
+                                                    <div class="text-base font-semibold">{item.name}</div>
+                                                    <div class="font-normal text-gray-500">{item.description}</div>
+                                                    </td>
+                                                    <td class="py-4 px-6 font-semibold text-gray-900">Php {item.price}.00</td>
+                                                    <td class="py-4 px-6 font-semibold text-gray-900">{item.quantity}</td>
+                                                    <td class="py-4 px-6 font-semibold text-gray-900">Php {item.totalprice}.00</td>
+                                                </tr>
+                                            ))}
+                                            <tr>
+                                                <td colspan="3" class="border-0"></td>
+                                                <td  class="border-0 py-4 px-6 font-semibold text-green-900">TOTAL</td>
+                                                <td class="border-0 py-4 px-6 font-semibold text-gray-900">Php {modalcontent.totalamount}.00</td>
                                             </tr>
-                                        ))}
-                                        <tr>
-                                            <td colspan="3" class="border-0"></td>
-                                            <td  class="border-0 py-4 px-6 font-semibold text-green-900">TOTAL</td>
-                                            <td class="border-0 py-4 px-6 font-semibold text-gray-900">Php {modalcontent.totalamount}.00</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="flex items-center justify-center p-6 space-x-2 rounded-b border-0">
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="flex items-center justify-center p-6 space-x-2 rounded-b border-0">
+                                        <button
+                                            onClick={()=> handleOpenModifyModal(true)}
+                                            type="button"  
+                                            class="text-white w-48 bg-orange-500 hover:bg-blue-800 focus:ring-4 focus:outline-none 
+                                            focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                                        >MODIFY ORDER</button>
                                     <button
-                                        onClick={()=> handleOpenModifyModal(true)}
-                                        type="button"  
-                                        class="text-white w-48 bg-orange-500 hover:bg-blue-800 focus:ring-4 focus:outline-none 
-                                        focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-                                    >MODIFY ORDER</button>
-                                <button
-                                    type="button"
-                                    class="text-white w-48 bg-green-700  rounded-lg border border-gray-200 
-                                    text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10"
-                                    >ACCEPT ORDER</button>
+                                        type="button"
+                                        class="text-white w-48 bg-green-700  rounded-lg border border-gray-200 
+                                        text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10"
+                                        >ACCEPT ORDER</button>
+                                </div>
                             </div>
-                        </div>
                             }
                         </div>
                   </div>

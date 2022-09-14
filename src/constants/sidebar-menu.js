@@ -23,7 +23,7 @@ const sidebar_menu = [
         id: 3,
         Icon: <GiTakeMyMoney />,
         path: '/surcharges',
-        title: 'Surcharges',
+        title: 'Subscription',
     },
     {
         id: 4,

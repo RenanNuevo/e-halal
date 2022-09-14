@@ -97,15 +97,24 @@ th {
     padding: 12px 24px;
     background: transparent;
     box-shadow: none;
-    color: #2D83B5;
-    font-size: 0.75rem;
-    font-weight: 700;
+    color: black;
+    font-size: 0.82rem;
+    font-weight: 650;
     line-height: 1.25;
     letter-spacing: 0.035em;
     border-bottom: 0.05rem solid rgb(240, 242, 245);
 }
+table.column-type  td, table.column-type  th {
+    border-bottom: 0.00rem solid rgb(240, 242, 245);
+}
+td.tagged > span {
+    color: #217e63;
+}
 tbody {
     display: table-row-group;
+}
+thead.menu th {
+    text-align: center;
 }
 tr, thead {
     color: inherit;

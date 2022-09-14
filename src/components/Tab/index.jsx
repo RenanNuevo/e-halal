@@ -6,20 +6,20 @@ import './styles.css';
 export default function Tabs({ color }) {
   const [openTab, setOpenTab] = React.useState(1);
   return (
-    <>
+    <div className="col-start-1 col-end-3">
       <div className="flex flex-wrap">
         <div className="w-full">
           <ul
             className="flex list-none flex-wrap pt-3 flex-row"
             role="tablist"
           >
-            <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
+            <li className={"-mb-px mr-2 last:mr-0 flex-auto text-center rounded" +
+                  (openTab === 1
+                    ? "text-red bg-white border-2 border-b-0"
+                    : "text-white bg-gray border-2 border-b-2")}>
               <a
                 className={
-                  "text-xs font-bold uppercase px-5 py-3 rounded block leading-normal " +
-                  (openTab === 1
-                    ? "text-white bg-green"
-                    : "text-white bg-gray")
+                  "text-xs font-bold uppercase px-5 py-3  block leading-normal " 
                 }
                 onClick={e => {
                   e.preventDefault();
@@ -33,13 +33,13 @@ export default function Tabs({ color }) {
                 <Badge display={3} />
               </a>
             </li>
-            <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
+            <li className={"-mb-px mr-2 last:mr-0 flex-auto text-center rounded" +
+                  (openTab === 2
+                    ? "text-red bg-white border-2 border-b-0"
+                    : "text-white bg-gray border-2 border-b-2")}>
               <a
                 className={
-                  "text-xs font-bold uppercase px-5 py-3 rounded block leading-normal " +
-                  (openTab === 2
-                    ? "text-white bg-green"
-                    : "text-white bg-gray")
+                  "text-xs font-bold uppercase px-5 py-3  block leading-normal " 
                 }
                 onClick={e => {
                   e.preventDefault();
@@ -54,11 +54,11 @@ export default function Tabs({ color }) {
               </a>
             </li>
           </ul>
-          <div className="relative flex flex-col min-w-0 break-words bg-green w-full">
-            <div className="px-4 py-5 flex-auto bg-green">
+          <div className="relative flex flex-col min-w-0 break-words bg-white w-full border-2 border-t-0">
+            <div className="px-4 py-5 flex-auto bg-white">
               <div className="tab-content tab-space pt-10">
                 <div className={`${openTab === 1 ? "block" : "hidden"}`} id="link1">
-                    <div className="block p-6 rounded-lg shadow-lg bg-white w-full my-2">
+                    <div className="block p-6 rounded-lg shadow-lg bg-white w-full my-2 border">
                         <h5 className="text-gray-900 text-xl leading-tight font-medium ">Additional 8 Items for the menu</h5>
                         <div className="grid  grid-cols-2">
                             <div className="grid content-center">
@@ -80,7 +80,7 @@ export default function Tabs({ color }) {
                             </div>
                         </div>
                     </div>
-                    <div className="block p-6 rounded-lg shadow-lg bg-white w-full my-2">
+                    <div className="block p-6 rounded-lg shadow-lg bg-white w-full my-2 border">
                         <h5 className="text-gray-900 text-xl leading-tight font-medium ">Additional 8 Items for the menu</h5>
                         <div className="grid  grid-cols-2">
                             <div className="grid content-center">
@@ -102,7 +102,7 @@ export default function Tabs({ color }) {
                             </div>
                         </div>
                     </div>
-                    <div className="block p-6 rounded-lg shadow-lg bg-white w-full my-2">
+                    <div className="block p-6 rounded-lg shadow-lg bg-white w-full my-2 border">
                         <h5 className="text-gray-900 text-xl leading-tight font-medium ">Additional 8 Items for the menu</h5>
                         <div className="grid  grid-cols-2">
                             <div className="grid content-center">
@@ -127,7 +127,7 @@ export default function Tabs({ color }) {
                     
                 </div>
                 <div className={openTab === 2 ? "block" : "hidden"} id="link2">
-                <div className="block p-6 rounded-lg shadow-lg bg-white w-full my-2">
+                <div className="block p-6 rounded-lg shadow-lg bg-white w-full my-2 border">
                         <h5 className="text-gray-900 text-xl leading-tight font-medium ">Additional 8 Items for the menu</h5>
                         <div className="grid  grid-cols-2">
                             <div className="grid content-center">
@@ -148,7 +148,7 @@ export default function Tabs({ color }) {
                             </div>
                         </div>
                     </div>
-                    <div className="block p-6 rounded-lg shadow-lg bg-white w-full my-2">
+                    <div className="block p-6 rounded-lg shadow-lg bg-white w-full my-2 border">
                         <h5 className="text-gray-900 text-xl leading-tight font-medium ">Additional 8 Items for the menu</h5>
                         <div className="grid  grid-cols-2">
                             <div className="grid content-center">
@@ -169,7 +169,7 @@ export default function Tabs({ color }) {
                             </div>
                         </div>
                     </div>
-                    <div className="block p-6 rounded-lg shadow-lg bg-white w-full my-2">
+                    <div className="block p-6 rounded-lg shadow-lg bg-white w-full my-2 border">
                         <h5 className="text-gray-900 text-xl leading-tight font-medium ">Additional 8 Items for the menu</h5>
                         <div className="grid  grid-cols-2">
                             <div className="grid content-center">
@@ -191,7 +191,7 @@ export default function Tabs({ color }) {
                         </div>
 
                     </div>
-                    <div className="block p-6 rounded-lg shadow-lg bg-white w-full my-2">
+                    <div className="block p-6 rounded-lg shadow-lg bg-white w-full my-2 border">
                         <h5 className="text-gray-900 text-xl leading-tight font-medium ">Additional 8 Items for the menu</h5>
                         <div className="grid  grid-cols-2">
                             <div className="grid content-center">
@@ -212,7 +212,7 @@ export default function Tabs({ color }) {
                             </div>
                         </div>
                         
-                    </div><div className="block p-6 rounded-lg shadow-lg bg-white w-full my-2">
+                    </div><div className="block p-6 rounded-lg shadow-lg bg-white w-full my-2 border">
                         <h5 className="text-gray-900 text-xl leading-tight font-medium ">Additional 8 Items for the menu</h5>
                         <div className="grid  grid-cols-2">
                             <div className="grid content-center">
@@ -240,6 +240,6 @@ export default function Tabs({ color }) {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
